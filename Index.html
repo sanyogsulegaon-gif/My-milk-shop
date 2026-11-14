@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Business App</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f1f5f9;
+      text-align: center;
+    }
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 25px;
+    }
+    .card {
+      background: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    button {
+      background: #087f5b;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+    }
+/* Professional Home Page */
+.hero {
+  background: linear-gradient(135deg, #087f5b, #20a879);
+  color: white;
+  padding: 35px 20px;
+  text-align: center;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero button {
+  background: white;
+  color: #087f5b;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 15px;
+}
+
+.feature-card {
+  background: white;
+  padding: 18px 10px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px #0001;
+}
+
+  </style>
+<<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#087f5b">>
+<body>
+
+<header>
+  <h1>My Business</h1>
+  <p>Welcome to our online shop!</p>
+</header>
+
+<div class="card">
+  <h2>Our Products</h2>
+  <p>Quality products at affordable prices.</p>
+  <button onclick="showProducts()">
+    View Products
+  </button>
+</div>
+
+<div id="products"></div>
+
+<script>
+function showProducts() {
+  document.getElementById("products").innerHTML =
+    "<div class='card'><h2>Our Products</h2>" +
+    "<p>Product 1</p><p>Product 2</p>" +
+    "<p>Product 3</p></div>";
+}
+</script>
+
+<!-- Homepage -->
+<section class="hero" id="home">
+  <h1>🥛 My Milk Shop</h1>
+  <h2>Freshness Every Day!</h2>
+  <p>
+    Fresh Cow Milk, Buffalo Milk
+    and Delicious Curd.
+  </p>
+  <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+    Shop Now
+  </button>
+</section>
+
+<div class="features">
+  <div class="feature-card">
+    <h2>🥛</h2>
+    <h3>Fresh Milk</h3>
+    <p>Daily freshness</p>
+  </div>
+
+  <div class="feature-card">
+    <h2>🐃</h2>
+    <h3>Buffalo Milk</h3>
+    <p>Quality products</p>
+  </div>
+
+  <div class="feature-card">
+    <h2>🐄</h2>
+    <h3>Cow Milk</h3>
+    <p>Fresh dairy</p>
+  </div>
+
+  <div class="feature-card">
+    <h2>🥣</h2>
+    <h3>Fresh Curd</h3>
+    <p>Daily dairy products</p>
+  </div>
+</div>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .catch(error => console.log(error));
+  });
+}
+</script>
+</body>
+</html>
